@@ -11,56 +11,78 @@ https://stream8.cinerama.uz/1062/tracks-v1a1/mono.m3u8
 https://live-saha.cdnvideo.ru/saha/saha/playlist.m3u8
 #EXTINF:-1 group-title="Karachay Cherkessia",Arkhyz 24
 https://live.mediacdn.ru/sr1/arhis24/playlist.m3u8
-#EXTINF:-1 group-title="Sakha Yakutia",Yakutia 24
-https://live-saha.cdnvideo.ru/saha2/yak24rtmp_live.smil/playlist.m3u8
-#EXTINF:-1 group-title="Sakha Yakutia",Mammoth TV
-https://s34351.cdn.ngenix.net/hls/CH_R14_OTT_DV_YKT_MAMONT/variant.m3u8
 #EXTINF:-1 group-title="Karachay Cherkessia",Arkhyz 24 HD
 https://live.mediacdn.ru/sr1/arhis24/playlist_hdhigh.m3u8
-#EXTINF:-1 group-title="Tatarstan",Maidan
-http://rt-vlg-kzn-htlive.cdn.ngenix.net/hls/CH_R05_MAIDAN/variant.m3u8?version=2
-#EXTINF:-1 group-title="Bashkortostan",Tugan Tel
-http://streamer.rtcommufa.ru:1935/tugantel/hd/playlist.m3u8
-#EXTINF:-1 group-title="Dagestan",NNT Makhachkala
-http://185.78.112.47:8077/nnttv/index.m3u8
-#EXTINF:-1 group-title="Dagestan",NNT Makhachkala HD
-http://185.78.112.47:8077/nnttv_hd/index.m3u8
-#EXTINF:-1 group-title="Dagestan",Sreda TV
-http://185.78.112.47:8077/sreda/index.m3u8
-#EXTINF:-1 group-title="Xinjiang Turkic",Altay Kazakh
-http://play-a2.quklive.com/live/1674967786989306.m3u8
-#EXTINF:-1 group-title="Xinjiang Turkic",Tacheng 1
-http://218.84.35.38:3000/m3u8/live/tctv-1/index.m3u8
-#EXTINF:-1 group-title="Xinjiang Turkic",Tacheng 2
-http://218.84.35.38:3000/m3u8/live/tctv-2/index.m3u8
-#EXTINF:-1 group-title="Xinjiang Turkic",Tacheng 3
-http://218.84.35.38:3000/m3u8/live/tctv-3/index.m3u8
-#EXTINF:-1 group-title="Turkmenistan",Altyn Asyr 400
-https://alpha.tv.online.tm/legacyhls/ch001_400/index.m3u8
-#EXTINF:-1 group-title="Turkmenistan",Altyn Asyr 720
-https://alpha.tv.online.tm/legacyhls/ch001_720/index.m3u8
-#EXTINF:-1 group-title="Turkmenistan",Yaslyk 720
-https://alpha.tv.online.tm/legacyhls/ch002_720/index.m3u8
-#EXTINF:-1 group-title="Turkmenistan",Miras 400
-https://alpha.tv.online.tm/legacyhls/ch003_400/index.m3u8
-#EXTINF:-1 group-title="Turkmenistan",Turkmenistan Sport 720
-https://alpha.tv.online.tm/legacyhls/ch004_720/index.m3u8
-#EXTINF:-1 group-title="Turkmenistan",Turkmen Owazy 400
-https://alpha.tv.online.tm/legacyhls/ch005_400/index.m3u8
-#EXTINF:-1 group-title="Turkmenistan",Turkmenistan 400
-https://alpha.tv.online.tm/legacyhls/ch007_400/index.m3u8
-#EXTINF:-1 group-title="Iraqi Turkmen",Turkmeneli TV
-https://137840.global.ssl.fastly.net/edge/live_6b7c6e205afb11ebb010f5a331abaf98/playlist.m3u8
-#EXTINF:-1 group-title="South Azerbaijan Iran",West Azerbaijan TV
-https://ncdn.telewebion.ir/azarbayjangharbi/live/playlist.m3u8
-#EXTINF:-1 group-title="South Azerbaijan Iran",Sahand TV
-https://ncdn.telewebion.ir/sahand/live/playlist.m3u8
 #EXTINF:-1 group-title="Yazidi",Cira TV
 https://hlspackager.akamaized.net/live/DB/CIRA_TV/HLS/CIRA_TV.m3u8
-#EXTINF:-1 group-title="Yazidi",Ezidxan TV
-https://www.karwan1.de/karwan.tv/ezidxan-tv-muzik/chunks.m3u8
-#EXTINF:-1 group-title="Tur Abdin Syriac",Suryoyo Sat
-https://player-api.new.livestream.com/accounts/10187302/events/6785118/broadcasts/237816618.secure.m3u8
+#EXTINF:-1 group-title="Armenia",Armenia 1
+https://amtvusdvr.tulix.tv/am4abr/index.m3u8
+#EXTINF:-1 group-title="Armenia",ATV Armenia
+http://stream.mcquack.net/36/index.m3u8
+#EXTINF:-1 group-title="Armenia",Kentron TV
+http://stream.mcquack.net/39/index.m3u8
+#EXTINF:-1 group-title="Xinjiang Turkic",Bayingolin Uyghur
+http://file.loulannews.cn/nmip-media/channellive/channel103824/playlist.m3u8
+#EXTINF:-1 group-title="Xinjiang Turkic",Altay Kazakh NEW
+https://play-a2.quklive.com/live/1704380366011045.m3u8
+#EXTINF:-1 group-title="Xinjiang Turkic",Yumin Kazakh
+http://117.190.130.4:8081/out_2/index.m3u8
+#EXTINF:-1 group-title="South Azerbaijan Iran",Sabalan TV
+https://live-aburayhan1111.telewebion.ir/ek/sabalan/live/576p/index.m3u8
+#EXTINF:-1 group-title="South Azerbaijan Iran",Sahand TV Alternate
+https://live-aburayhan1107.telewebion.ir/ek/sahand/live/1080p/index.m3u8
+#EXTINF:-1 group-title="South Azerbaijan Iran",West Azerbaijan TV Alternate
+https://live-aburayhan1107.telewebion.ir/ek/azarbayjangharbi/live/576p/index.m3u8
+#EXTINF:-1 group-title="South Azerbaijan Iran",Sahand TV Lenz
+https://lenz.splus.ir/PLTV/88888888/224/3221226423/index.m3u8
+#EXTINF:-1 group-title="South Azerbaijan Iran",West Azerbaijan TV Lenz
+https://lenz.splus.ir/PLTV/88888888/224/3221226800/index.m3u8
+#EXTINF:-1 group-title="Dagestan Kumyk",RGVK Dagestan Direct 576
+http://broadcast.rgvk.tv/hls/576p.m3u8
+#EXTINF:-1 group-title="Dagestan Kumyk",RGVK Dagestan Yandex
+https://strm.yandex.ru/kal/dagestan/dagestan0.m3u8?vsid=0
+#EXTINF:-1 group-title="Turkmenistan Test",Altyn Asyr Direct IP
+http://217.174.225.146/legacyhls/ch001_720/index.m3u8
+#EXTINF:-1 group-title="Turkmenistan Test",Turkmenistan Sport Direct IP
+http://217.174.225.146/hls/ch004_720/index.m3u8
+#EXTINF:-1 group-title="Turkmenistan Test",Turkmenistan TV Direct IP
+http://217.174.225.146/legacyhls/ch007_720/index.m3u8
+#EXTINF:-1 group-title="Zaza Dimili",Sercem TV
+https://canli.sercemtv.com.tr/hls/0/stream.m3u8
+#EXTINF:-1 group-title="Zaza Dimili",Ilke TV
+https://stream.ilketv.com.tr/hls/ilkecanli.m3u8
+#EXTINF:-1 group-title="Kurdish Zaza Turkey",TRT Kurdi
+https://tv-trtkurdi.medya.trt.com.tr/master.m3u8
+#EXTINF:-1 group-title="Kurdish Zaza Turkey",Zarok TV Kurmanci
+https://zindikurmanci.zaroktv.com.tr/hls/stream.m3u8
+#EXTINF:-1 group-title="Kurdish Turkey",Zarok TV Sorani
+https://zindisorani.zaroktv.com.tr/hls/stream.m3u8
+#EXTINF:-1 group-title="Armenian Turkey",Luys TV Istanbul
+https://b01c02nl.mediatriple.net/videoonlylive/mtpayqrfkgirxelive/broadcast_5e91c5ac96898.smil/playlist.m3u8
+#EXTINF:-1 group-title="Rize Laz Hemshin Region",Kackar TV
+https://kackartv.ozelip.com:3898/stream/play.m3u8
+#EXTINF:-1 group-title="Rize Laz Hemshin Region",Rize Turk TV
+https://yayin.rizeturk.com:3777/hybrid/play.m3u8
+#EXTINF:-1 group-title="Rize Laz Hemshin Region",Kanal 53 Rize
+https://kanal53.ozelip.com:3448/hybrid/play.m3u8
+#EXTINF:-1 group-title="Black Sea Region",Slow Karadeniz TV
+https://yayin.slowkaradeniztv.com:3390/hybrid/play.m3u8
+#EXTINF:-1 group-title="Chuvashia",Chuvash EN
+http://rt-vlg-chr-htlive.cdn.ngenix.net/hls/CH_R01_NATIONALTV/variant.m3u8
+#EXTINF:-1 group-title="Chuvashia",UTV Cheboksary
+http://rt-vlg-chr-htlive.cdn.ngenix.net/hls/CH_R01_UTV/variant.m3u8
+#EXTINF:-1 group-title="Bashkortostan",Uchaly TV
+http://s45177.cdn.ngenix.net/hls/CH_R02_UCHALYTV/variant.m3u8
+#EXTINF:-1 group-title="Alevi Turkey",Yol TV
+https://stream.yol.tv:9443/medialive/yol.m3u8
+#EXTINF:-1 group-title="Alevi Turkey",Yol TV Alternate
+https://iptv.amgsmart2home.de/YOLTVMAIN/index.m3u8
+#EXTINF:-1 group-title="Alevi Zaza Dersim",Can TV
+http://canbroadcast.com:7000/canlican/tv.m3u8
+#EXTINF:-1 group-title="Alevi Turkey",Cem TV
+https://59c7ea6bec1c6.streamlock.net/filbox/cemtv.stream/playlist.m3u8
+#EXTINF:-1 group-title="Suryoyo Assyrian",Ishtar TV
+http://176.9.102.245:1935/iShtarTV/liveStream/playlist.m3u8https://player-api.new.livestream.com/accounts/10187302/events/6785118/broadcasts/237816618.secure.m3u8
 #EXTINF:-1 group-title="Assyrian Syriac",Ashur Sat
 https://5afd52b55ff79.net/AshurSat/myStream/playlist.m3u8
 #EXTINF:-1 group-title="Armenia",Armenia 1
