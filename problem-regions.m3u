@@ -1,68 +1,175 @@
 #EXTM3U
 
-# CONFIRMED WORKING - KARACHAY CHERKESSIA
-#EXTINF:-1 group-title="Karachay Cherkessia",Arkhyz 24 MediaCDN
+# =========================================================
+# CONFIRMED WORKING
+# =========================================================
+
+# KARACHAY-CHERKESSIA
+#EXTINF:-1 group-title="Karachay Cherkessia",Arkhyz 24
 https://live.mediacdn.ru/sr1/arhis24/playlist.m3u8
 
-
-# CONFIRMED WORKING - DAGESTAN
-#EXTINF:-1 group-title="Dagestan",RGVK Dagestan MediaCDN
+# DAGESTAN
+#EXTINF:-1 group-title="Dagestan",RGVK Dagestan
 https://dagestan.mediacdn.ru/cdn/dagestan/playlist.m3u8
 
 #EXTINF:-1 group-title="Dagestan",RGVK Dagestan HD
 https://dagestan.mediacdn.ru/cdn/dagestan/playlist_hdhigh.m3u8
 
-
-# NEW TESTS - TATARSTAN
-#EXTINF:-1 group-title="Tatarstan",TNV Tatarstan
-https://user91229.clients-cdnnow.ru/hls/user91229_1.m3u8
-
-#EXTINF:-1 group-title="Tatarstan",TNV Planet Cinerama
+# TATARSTAN
+#EXTINF:-1 group-title="Tatarstan",TNV Planet
 https://stream8.cinerama.uz/1062/tracks-v1a1/mono.m3u8
-
-#EXTINF:-1 group-title="Tatarstan",Shayan TV
-https://shayan.bonus-tv.ru/cdn/shayan/playlist.m3u8
-
-#EXTINF:-1 group-title="Tatarstan",Matur TV
-https://public.streaming.matur-tv.ru/hls/h264_aac/stream.m3u8
 
 #EXTINF:-1 group-title="Tatarstan",Khuzur TV
 https://hls-mycdn08724960135.cdnvideo.ru/mycdn08724960135/stream1/tracks-v1a1/mono.m3u8
 
-
-# NEW TESTS - BASHKORTOSTAN
-#EXTINF:-1 group-title="Bashkortostan",BST SD
-https://bsttv.bonus-tv.ru/cdn/bst/playlist_sdhigh.m3u8
-
-#EXTINF:-1 group-title="Bashkortostan",Tamyr SD
-https://bsttv.bonus-tv.ru/cdn/tamyr/playlist_sdhigh.m3u8
-
-#EXTINF:-1 group-title="Bashkortostan",Kurai TV SD
-https://bsttv.bonus-tv.ru/cdn/kurai/playlist_sdhigh.m3u8
-
-
-# NEW TESTS - SAKHA YAKUTIA
-#EXTINF:-1 group-title="Sakha Yakutia",NVK Sakha Direct
+# SAKHA / YAKUTIA
+#EXTINF:-1 group-title="Sakha Yakutia",NVK Sakha
 https://live-saha.cdnvideo.ru/saha/saha/playlist.m3u8
 
-#EXTINF:-1 group-title="Sakha Yakutia",Yakutia 24
-http://live-saha.cdnvideo.ru/saha/yak24/playlist.m3u8
 
-#EXTINF:-1 group-title="Sakha Yakutia",Tooku
-http://live-saha.cdnvideo.ru/saha/tooky/playlist.m3u8
+# =========================================================
+# NEW TESTS - SAKHA / YAKUTIA
+# =========================================================
 
+#EXTINF:-1 group-title="Sakha Yakutia",Yakutia 24 NEW
+https://live-saha.cdnvideo.ru/saha2/yak24rtmp_live.smil/playlist.m3u8
 
-# NEW TESTS - XINJIANG
-#EXTINF:-1 group-title="Xinjiang Turkic",Karamay Uyghur
-https://klmyzb.rcsxzx.com/hls/klmy2.m3u8
-
-#EXTINF:-1 group-title="Xinjiang Turkic",Ili Uyghur
-http://110.153.180.106:55555/out_2/index.m3u8
-
-#EXTINF:-1 group-title="Xinjiang Turkic",Ili Kazakh
-http://110.153.180.106:55555/out_3/index.m3u8
+#EXTINF:-1 group-title="Sakha Yakutia",Mammoth TV
+https://s34351.cdn.ngenix.net/hls/CH_R14_OTT_DV_YKT_MAMONT/variant.m3u8
 
 
-# NEW TEST - CRIMEAN TATAR
-#EXTINF:-1 group-title="Crimean Tatar",Millet
-http://live.trkmillet.ru/millet/index.m3u8
+# =========================================================
+# NEW TESTS - KARACHAY-CHERKESSIA
+# =========================================================
+
+#EXTINF:-1 group-title="Karachay Cherkessia",Arkhyz 24 HD High
+https://live.mediacdn.ru/sr1/arhis24/playlist_hdhigh.m3u8
+
+
+# =========================================================
+# NEW TESTS - TATARSTAN
+# =========================================================
+
+#EXTINF:-1 group-title="Tatarstan",Maidan Alternate
+http://rt-vlg-kzn-htlive.cdn.ngenix.net/hls/CH_R05_MAIDAN/variant.m3u8?version=2
+
+
+# =========================================================
+# NEW TESTS - BASHKORTOSTAN
+# =========================================================
+
+#EXTINF:-1 group-title="Bashkortostan",Tugan Tel
+http://streamer.rtcommufa.ru:1935/tugantel/hd/playlist.m3u8
+
+
+# =========================================================
+# NEW TESTS - DAGESTAN
+# =========================================================
+
+#EXTINF:-1 group-title="Dagestan",NNT Makhachkala
+http://185.78.112.47:8077/nnttv/index.m3u8
+
+#EXTINF:-1 group-title="Dagestan",NNT Makhachkala HD
+http://185.78.112.47:8077/nnttv_hd/index.m3u8
+
+#EXTINF:-1 group-title="Dagestan",Sreda TV
+http://185.78.112.47:8077/sreda/index.m3u8
+
+
+# =========================================================
+# NEW TESTS - XINJIANG / KAZAKH
+# =========================================================
+
+#EXTINF:-1 group-title="Xinjiang Turkic",Altay Kazakh
+http://play-a2.quklive.com/live/1674967786989306.m3u8
+
+#EXTINF:-1 group-title="Xinjiang Turkic",Tacheng 1
+http://218.84.35.38:3000/m3u8/live/tctv-1/index.m3u8
+
+#EXTINF:-1 group-title="Xinjiang Turkic",Tacheng 2
+http://218.84.35.38:3000/m3u8/live/tctv-2/index.m3u8
+
+#EXTINF:-1 group-title="Xinjiang Turkic",Tacheng 3
+http://218.84.35.38:3000/m3u8/live/tctv-3/index.m3u8
+
+
+# =========================================================
+# NEW TESTS - TURKMENISTAN
+# direct bitrate variants, NOT the failed master URLs
+# =========================================================
+
+#EXTINF:-1 group-title="Turkmenistan",Altyn Asyr 400
+https://alpha.tv.online.tm/legacyhls/ch001_400/index.m3u8
+
+#EXTINF:-1 group-title="Turkmenistan",Altyn Asyr 720
+https://alpha.tv.online.tm/legacyhls/ch001_720/index.m3u8
+
+#EXTINF:-1 group-title="Turkmenistan",Yaslyk 720
+https://alpha.tv.online.tm/legacyhls/ch002_720/index.m3u8
+
+#EXTINF:-1 group-title="Turkmenistan",Miras 400
+https://alpha.tv.online.tm/legacyhls/ch003_400/index.m3u8
+
+#EXTINF:-1 group-title="Turkmenistan",Turkmenistan Sport 720
+https://alpha.tv.online.tm/legacyhls/ch004_720/index.m3u8
+
+#EXTINF:-1 group-title="Turkmenistan",Turkmen Owazy 400
+https://alpha.tv.online.tm/legacyhls/ch005_400/index.m3u8
+
+#EXTINF:-1 group-title="Turkmenistan",Turkmenistan 400
+https://alpha.tv.online.tm/legacyhls/ch007_400/index.m3u8
+
+
+# =========================================================
+# NEW TESTS - IRAQI TURKMEN
+# =========================================================
+
+#EXTINF:-1 group-title="Iraqi Turkmen",Turkmeneli TV
+https://137840.global.ssl.fastly.net/edge/live_6b7c6e205afb11ebb010f5a331abaf98/playlist.m3u8
+
+
+# =========================================================
+# NEW TESTS - SOUTH AZERBAIJAN / IRAN
+# =========================================================
+
+#EXTINF:-1 group-title="South Azerbaijan Iran",West Azerbaijan TV
+https://ncdn.telewebion.ir/azarbayjangharbi/live/playlist.m3u8
+
+#EXTINF:-1 group-title="South Azerbaijan Iran",Sahand TV
+https://ncdn.telewebion.ir/sahand/live/playlist.m3u8
+
+
+# =========================================================
+# NEW TESTS - YAZIDI
+# =========================================================
+
+#EXTINF:-1 group-title="Yazidi",Cira TV
+https://hlspackager.akamaized.net/live/DB/CIRA_TV/HLS/CIRA_TV.m3u8
+
+#EXTINF:-1 group-title="Yazidi",Ezidxan TV
+https://www.karwan1.de/karwan.tv/ezidxan-tv-muzik/chunks.m3u8
+
+
+# =========================================================
+# NEW TESTS - TUR ABDIN / SYRIAC
+# =========================================================
+
+#EXTINF:-1 group-title="Tur Abdin Syriac",Suryoyo Sat
+https://player-api.new.livestream.com/accounts/10187302/events/6785118/broadcasts/237816618.secure.m3u8
+
+#EXTINF:-1 group-title="Assyrian Syriac",Ashur Sat
+https://5afd52b55ff79.streamlock.net/AshurSat/myStream/playlist.m3u8
+
+
+# =========================================================
+# NEW TESTS - ARMENIA
+# =========================================================
+
+#EXTINF:-1 group-title="Armenia",Armenia 1
+https://amtvusdvr.tulix.tv/am4abr/index.m3u8
+
+#EXTINF:-1 group-title="Armenia",ATV Armenia
+http://stream.mcquack.net/36/index.m3u8
+
+#EXTINF:-1 group-title="Armenia",Kentron TV
+http://stream.mcquack.net/39/index.m3u8
