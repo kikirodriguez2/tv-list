@@ -16,48 +16,95 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Build playlist
+      - name: Build grouped playlist
         run: |
-          echo "#EXTM3U" > playlist.m3u
+          python3 - <<'PY'
+          import urllib.request
+          import re
 
-          urls=(
-            # MAIN TURKIC COUNTRIES
-            "https://iptv-org.github.io/iptv/countries/tr.m3u"
-            "https://iptv-org.github.io/iptv/countries/az.m3u"
-            "https://iptv-org.github.io/iptv/countries/kz.m3u"
-            "https://iptv-org.github.io/iptv/countries/kg.m3u"
-            "https://iptv-org.github.io/iptv/countries/uz.m3u"
-            "https://iptv-org.github.io/iptv/countries/tm.m3u"
+          sources = [
+              ("🇹🇷 Türkiye", "https://iptv-org.github.io/iptv/countries/tr.m3u"),
+              ("🇦🇿 Azerbaijan", "https://iptv-org.github.io/iptv/countries/az.m3u"),
+              ("🇰🇿 Kazakhstan", "https://iptv-org.github.io/iptv/countries/kz.m3u"),
+              ("🇰🇬 Kyrgyzstan", "https://iptv-org.github.io/iptv/countries/kg.m3u"),
+              ("🇺🇿 Uzbekistan", "https://iptv-org.github.io/iptv/countries/uz.m3u"),
+              ("🇹🇲 Turkmenistan", "https://iptv-org.github.io/iptv/countries/tm.m3u"),
 
-            # TURKIC / TURKIC-RELATED REGIONS IN RUSSIA
-            "https://iptv-org.github.io/iptv/subdivisions/ru-ta.m3u"
-            "https://iptv-org.github.io/iptv/subdivisions/ru-ba.m3u"
-            "https://iptv-org.github.io/iptv/subdivisions/ru-sa.m3u"
-            "https://iptv-org.github.io/iptv/subdivisions/ru-ty.m3u"
-            "https://iptv-org.github.io/iptv/subdivisions/ru-kk.m3u"
-            "https://iptv-org.github.io/iptv/subdivisions/ru-al.m3u"
-            "https://iptv-org.github.io/iptv/subdivisions/ru-kc.m3u"
-            "https://iptv-org.github.io/iptv/subdivisions/ru-kb.m3u"
+              ("Tatarstan", "https://iptv-org.github.io/iptv/subdivisions/ru-ta.m3u"),
+              ("Bashkortostan", "https://iptv-org.github.io/iptv/subdivisions/ru-ba.m3u"),
+              ("Sakha / Yakutia", "https://iptv-org.github.io/iptv/subdivisions/ru-sa.m3u"),
+              ("Tuva", "https://iptv-org.github.io/iptv/subdivisions/ru-ty.m3u"),
+              ("Khakassia", "https://iptv-org.github.io/iptv/subdivisions/ru-kk.m3u"),
+              ("Altai Republic", "https://iptv-org.github.io/iptv/subdivisions/ru-al.m3u"),
+              ("Karachay-Cherkessia", "https://iptv-org.github.io/iptv/subdivisions/ru-kc.m3u"),
+              ("Kabardino-Balkaria", "https://iptv-org.github.io/iptv/subdivisions/ru-kb.m3u"),
 
-            # FUN ADJACENT REGIONAL STUFF
-            "https://iptv-org.github.io/iptv/subdivisions/ru-da.m3u"
-            "https://iptv-org.github.io/iptv/subdivisions/ru-ast.m3u"
-            "https://iptv-org.github.io/iptv/subdivisions/ru-alt.m3u"
-            "https://iptv-org.github.io/iptv/subdivisions/ru-ce.m3u"
+              ("Dagestan", "https://iptv-org.github.io/iptv/subdivisions/ru-da.m3u"),
+              ("Astrakhan", "https://iptv-org.github.io/iptv/subdivisions/ru-ast.m3u"),
+              ("Altai Krai", "https://iptv-org.github.io/iptv/subdivisions/ru-alt.m3u"),
+              ("Chechnya", "https://iptv-org.github.io/iptv/subdivisions/ru-ce.m3u"),
 
-            # RARE TURKIC-LANGUAGE EXTRAS
-            "https://iptv-org.github.io/iptv/languages/uig.m3u"
-            "https://iptv-org.github.io/iptv/languages/kmz.m3u"
-          )
+              ("Uyghur", "https://iptv-org.github.io/iptv/languages/uig.m3u"),
+              ("Khorasani Turkish", "https://iptv-org.github.io/iptv/languages/kmz.m3u"),
+          ]
 
-          for url in "${urls[@]}"; do
-            curl -fsSL "$url" | sed '/^#EXTM3U/d' >> playlist.m3u
-          done
+          output = ["#EXTM3U"]
+          seen_urls = set()
+
+          for group, url in sources:
+              try:
+                  with urllib.request.urlopen(url, timeout=30) as response:
+                      text = response.read().decode("utf-8")
+              except Exception as e:
+                  print(f"Could not download {group}: {e}")
+                  continue
+
+              lines = text.splitlines()
+              i = 0
+
+              while i < len(lines):
+                  line = lines[i].strip()
+
+                  if line.startswith("#EXTINF:") and i + 1 < len(lines):
+                      stream = lines[i + 1].strip()
+
+                      if stream.startswith(("http://", "https://")):
+                          if stream not in seen_urls:
+                              seen_urls.add(stream)
+
+                              if 'group-title="' in line:
+                                  line = re.sub(
+                                      r'group-title="[^"]*"',
+                                      f'group-title="{group}"',
+                                      line
+                                  )
+                              else:
+                                  comma = line.find(",")
+                                  if comma != -1:
+                                      line = (
+                                          line[:comma]
+                                          + f' group-title="{group}"'
+                                          + line[comma:]
+                                      )
+
+                              output.append(line)
+                              output.append(stream)
+
+                          i += 2
+                          continue
+
+                  i += 1
+
+          with open("playlist.m3u", "w", encoding="utf-8") as f:
+              f.write("\n".join(output) + "\n")
+
+          print(f"Created playlist with {len(seen_urls)} unique streams")
+          PY
 
       - name: Save playlist
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
           git add playlist.m3u
-          git diff --cached --quiet || git commit -m "Update playlist"
+          git diff --cached --quiet || git commit -m "Update grouped playlist"
           git push
