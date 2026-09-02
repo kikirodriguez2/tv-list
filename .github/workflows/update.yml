@@ -11,7 +11,7 @@ on:
 jobs:
   update:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 12
 
     steps:
       - name: Checkout
@@ -24,261 +24,163 @@ jobs:
           import re
           from collections import Counter
 
-          # ---------------------------------------------------------
-          # REMOTE PLAYLISTS
-          #
-          # We combine country + language lists where useful.
-          # This gives substantially more channels than country alone.
-          # ---------------------------------------------------------
-
+          # Main country/language sources. These remain the broad base.
           sources = [
-              (
-                  "Turkey",
-                  [
-                      "https://iptv-org.github.io/iptv/countries/tr.m3u",
-                      "https://iptv-org.github.io/iptv/languages/tur.m3u",
-                  ],
-              ),
-              (
-                  "Azerbaijan",
-                  [
-                      "https://iptv-org.github.io/iptv/countries/az.m3u",
-                      "https://iptv-org.github.io/iptv/languages/aze.m3u",
-                  ],
-              ),
-              (
-                  "Kazakhstan",
-                  [
-                      "https://iptv-org.github.io/iptv/countries/kz.m3u",
-                      "https://iptv-org.github.io/iptv/languages/kaz.m3u",
-                  ],
-              ),
-              (
-                  "Kyrgyzstan",
-                  [
-                      "https://iptv-org.github.io/iptv/countries/kg.m3u",
-                      "https://iptv-org.github.io/iptv/languages/kir.m3u",
-                  ],
-              ),
-              (
-                  "Uzbekistan",
-                  [
-                      "https://iptv-org.github.io/iptv/countries/uz.m3u",
-                      "https://iptv-org.github.io/iptv/languages/uzb.m3u",
-                  ],
-              ),
-              (
-                  "Turkmenistan",
-                  [
-                      "https://iptv-org.github.io/iptv/countries/tm.m3u",
-                      "https://iptv-org.github.io/iptv/languages/tuk.m3u",
-                  ],
-              ),
-
-              (
-                  "Tatarstan",
-                  [
-                      "https://iptv-org.github.io/iptv/subdivisions/ru-ta.m3u",
-                      "https://iptv-org.github.io/iptv/languages/tat.m3u",
-                  ],
-              ),
-              (
-                  "Bashkortostan",
-                  [
-                      "https://iptv-org.github.io/iptv/subdivisions/ru-ba.m3u",
-                      "https://iptv-org.github.io/iptv/languages/bak.m3u",
-                  ],
-              ),
-              (
-                  "Sakha Yakutia",
-                  [
-                      "https://iptv-org.github.io/iptv/subdivisions/ru-sa.m3u",
-                      "https://iptv-org.github.io/iptv/languages/sah.m3u",
-                  ],
-              ),
-              (
-                  "Tuva",
-                  [
-                      "https://iptv-org.github.io/iptv/subdivisions/ru-ty.m3u",
-                  ],
-              ),
-              (
-                  "Khakassia",
-                  [
-                      "https://iptv-org.github.io/iptv/subdivisions/ru-kk.m3u",
-                  ],
-              ),
-              (
-                  "Altai Republic",
-                  [
-                      "https://iptv-org.github.io/iptv/subdivisions/ru-al.m3u",
-                  ],
-              ),
-              (
-                  "Karachay Cherkessia",
-                  [
-                      "https://iptv-org.github.io/iptv/subdivisions/ru-kc.m3u",
-                  ],
-              ),
-              (
-                  "Kabardino Balkaria",
-                  [
-                      "https://iptv-org.github.io/iptv/subdivisions/ru-kb.m3u",
-                  ],
-              ),
-              (
-                  "Dagestan",
-                  [
-                      "https://iptv-org.github.io/iptv/subdivisions/ru-da.m3u",
-                  ],
-              ),
-              (
-                  "Astrakhan",
-                  [
-                      "https://iptv-org.github.io/iptv/subdivisions/ru-ast.m3u",
-                  ],
-              ),
-              (
-                  "Altai Krai",
-                  [
-                      "https://iptv-org.github.io/iptv/subdivisions/ru-alt.m3u",
-                  ],
-              ),
-              (
-                  "Chechnya",
-                  [
-                      "https://iptv-org.github.io/iptv/subdivisions/ru-ce.m3u",
-                  ],
-              ),
-
-              (
-                  "Xinjiang Turkic",
-                  [
-                      "https://iptv-org.github.io/iptv/languages/uig.m3u",
-                  ],
-              ),
-
-              (
-                  "Khorasani Turkish",
-                  [
-                      "https://iptv-org.github.io/iptv/languages/kmz.m3u",
-                  ],
-              ),
+              ("Turkey", [
+                  "https://iptv-org.github.io/iptv/countries/tr.m3u",
+                  "https://iptv-org.github.io/iptv/languages/tur.m3u",
+              ]),
+              ("Azerbaijan", [
+                  "https://iptv-org.github.io/iptv/countries/az.m3u",
+                  "https://iptv-org.github.io/iptv/languages/aze.m3u",
+              ]),
+              ("Kazakhstan", [
+                  "https://iptv-org.github.io/iptv/countries/kz.m3u",
+                  "https://iptv-org.github.io/iptv/languages/kaz.m3u",
+              ]),
+              ("Kyrgyzstan", [
+                  "https://iptv-org.github.io/iptv/countries/kg.m3u",
+                  "https://iptv-org.github.io/iptv/languages/kir.m3u",
+              ]),
+              ("Uzbekistan", [
+                  "https://iptv-org.github.io/iptv/countries/uz.m3u",
+                  "https://iptv-org.github.io/iptv/languages/uzb.m3u",
+              ]),
+              ("Turkmenistan", [
+                  "https://iptv-org.github.io/iptv/countries/tm.m3u",
+                  "https://iptv-org.github.io/iptv/languages/tuk.m3u",
+              ]),
+              ("Tatarstan", [
+                  "https://iptv-org.github.io/iptv/subdivisions/ru-ta.m3u",
+                  "https://iptv-org.github.io/iptv/languages/tat.m3u",
+              ]),
+              ("Bashkortostan", [
+                  "https://iptv-org.github.io/iptv/subdivisions/ru-ba.m3u",
+                  "https://iptv-org.github.io/iptv/languages/bak.m3u",
+              ]),
+              ("Sakha Yakutia", [
+                  "https://iptv-org.github.io/iptv/subdivisions/ru-sa.m3u",
+                  "https://iptv-org.github.io/iptv/languages/sah.m3u",
+              ]),
+              ("Tuva", [
+                  "https://iptv-org.github.io/iptv/subdivisions/ru-ty.m3u",
+              ]),
+              ("Khakassia", [
+                  "https://iptv-org.github.io/iptv/subdivisions/ru-kk.m3u",
+              ]),
+              ("Altai Republic", [
+                  "https://iptv-org.github.io/iptv/subdivisions/ru-al.m3u",
+              ]),
+              ("Karachay Cherkessia", [
+                  "https://iptv-org.github.io/iptv/subdivisions/ru-kc.m3u",
+              ]),
+              ("Kabardino Balkaria", [
+                  "https://iptv-org.github.io/iptv/subdivisions/ru-kb.m3u",
+              ]),
+              ("Dagestan", [
+                  "https://iptv-org.github.io/iptv/subdivisions/ru-da.m3u",
+              ]),
+              ("Astrakhan", [
+                  "https://iptv-org.github.io/iptv/subdivisions/ru-ast.m3u",
+              ]),
+              ("Altai Krai", [
+                  "https://iptv-org.github.io/iptv/subdivisions/ru-alt.m3u",
+              ]),
+              ("Chechnya", [
+                  "https://iptv-org.github.io/iptv/subdivisions/ru-ce.m3u",
+              ]),
+              ("Xinjiang Turkic", [
+                  "https://iptv-org.github.io/iptv/languages/uig.m3u",
+              ]),
+              ("Khorasani Turkish", [
+                  "https://iptv-org.github.io/iptv/languages/kmz.m3u",
+              ]),
           ]
 
-          # ---------------------------------------------------------
-          # DIRECT FALLBACK / EXTRA CHANNELS
-          #
-          # These supplement the sometimes tiny IPTV-org regional lists.
-          # ---------------------------------------------------------
-
+          # Curated alternatives/fallbacks.
+          # Curated entries are imported FIRST so their metadata/user-agent wins
+          # when the same URL also occurs in an IPTV-org list.
           extras = [
-
               # TURKMENISTAN
-              ("Turkmenistan", "Arkadag TV",
-               "https://alpha.tv.online.tm/hls/ch000.m3u8"),
-              ("Turkmenistan", "Altyn Asyr",
-               "https://alpha.tv.online.tm/hls/ch001.m3u8"),
-              ("Turkmenistan", "Yaslyk",
-               "https://alpha.tv.online.tm/hls/ch002.m3u8"),
-              ("Turkmenistan", "Miras",
-               "https://alpha.tv.online.tm/hls/ch003.m3u8"),
-              ("Turkmenistan", "Turkmen Sport",
-               "https://alpha.tv.online.tm/hls/ch004.m3u8"),
-              ("Turkmenistan", "Turkmen Owazy",
-               "https://alpha.tv.online.tm/hls/ch005.m3u8"),
-              ("Turkmenistan", "Ashgabat TV",
-               "https://alpha.tv.online.tm/hls/ch006.m3u8"),
-              ("Turkmenistan", "Turkmenistan",
-               "https://alpha.tv.online.tm/hls/ch007.m3u8"),
+              # Each state channel gets both the normal HLS and legacy-HLS endpoint.
+              ("Turkmenistan", "Arkadag TV", "https://alpha.tv.online.tm/hls/ch000.m3u8"),
+              ("Turkmenistan", "Arkadag TV - legacy", "https://alpha.tv.online.tm/legacyhls/ch000.m3u8"),
+              ("Turkmenistan", "Altyn Asyr", "https://alpha.tv.online.tm/hls/ch001.m3u8"),
+              ("Turkmenistan", "Altyn Asyr - legacy", "https://alpha.tv.online.tm/legacyhls/ch001.m3u8"),
+              ("Turkmenistan", "Yaslyk", "https://alpha.tv.online.tm/hls/ch002.m3u8"),
+              ("Turkmenistan", "Yaslyk - legacy", "https://alpha.tv.online.tm/legacyhls/ch002.m3u8"),
+              ("Turkmenistan", "Miras", "https://alpha.tv.online.tm/hls/ch003.m3u8"),
+              ("Turkmenistan", "Miras - legacy", "https://alpha.tv.online.tm/legacyhls/ch003.m3u8"),
+              ("Turkmenistan", "Turkmenistan Sport", "https://alpha.tv.online.tm/hls/ch004.m3u8"),
+              ("Turkmenistan", "Turkmenistan Sport - legacy", "https://alpha.tv.online.tm/legacyhls/ch004.m3u8"),
+              ("Turkmenistan", "Turkmen Owazy", "https://alpha.tv.online.tm/hls/ch005.m3u8"),
+              ("Turkmenistan", "Turkmen Owazy - legacy", "https://alpha.tv.online.tm/legacyhls/ch005.m3u8"),
+              ("Turkmenistan", "Ashgabat TV", "https://alpha.tv.online.tm/hls/ch006.m3u8"),
+              ("Turkmenistan", "Ashgabat TV - legacy", "https://alpha.tv.online.tm/legacyhls/ch006.m3u8"),
+              ("Turkmenistan", "Turkmenistan", "https://alpha.tv.online.tm/hls/ch007.m3u8"),
+              ("Turkmenistan", "Turkmenistan - legacy", "https://alpha.tv.online.tm/legacyhls/ch007.m3u8"),
 
               # TATARSTAN
-              ("Tatarstan", "Shayan TV",
-               "https://s45177.cdn.ngenix.net/hls/CH_R03_SHAYNTV/variant.m3u8"),
-              ("Tatarstan", "Tatarstan 24",
-               "https://rt-vlg-kzn-htlive.cdn.ngenix.net/hls/CH_R02_OTT_VLG_KZN_EFIR24/variant.m3u8"),
-              ("Tatarstan", "Maidan",
-               "https://rt-vlg-kzn-htlive.cdn.ngenix.net/hls/CH_R05_OTT_VLG_KZN_MAIDAN/variant.m3u8"),
-              ("Tatarstan", "Matur TV",
-               "https://s45177.cdn.ngenix.net/hls/CH_R02_MATURTV/variant.m3u8"),
-              ("Tatarstan", "TMTV",
-               "https://s45177.cdn.ngenix.net/hls/CH_R03_TMTV/variant.m3u8"),
-              ("Tatarstan", "TNV Planeta",
-               "https://rt-vlg-nn-htlive.cdn.ngenix.net/hls/CH_R05_TNV/variant.m3u8"),
+              ("Tatarstan", "TNV Planet - MediaCDN", "https://planeta.mediacdn.ru/cdn/tnvplanet/playlist.m3u8"),
+              ("Tatarstan", "TNV Planet - Cinerama", "https://stream8.cinerama.uz/1062/tracks-v1a1/mono.m3u8"),
+              ("Tatarstan", "TNV Tatarstan", "https://rt-vlg-kzn-htlive.cdn.ngenix.net/hls/CH_R01_TNVT/variant.m3u8"),
+              ("Tatarstan", "Tatarstan 24", "https://rt-vlg-kzn-htlive.cdn.ngenix.net/hls/CH_R02_EFIR24/variant.m3u8"),
+              ("Tatarstan", "Shayan TV", "https://s45177.cdn.ngenix.net/hls/CH_R03_SHAYNTV/variant.m3u8"),
+              ("Tatarstan", "Maidan", "https://rt-vlg-kzn-htlive.cdn.ngenix.net/hls/CH_R05_OTT_VLG_KZN_MAIDAN/variant.m3u8"),
+              ("Tatarstan", "GTRK Tatarstan - Russia 1 regional", "http://vgtrkregion-reg.cdnvideo.ru/vgtrk/kazan/russia1-hd/index.m3u8"),
 
               # BASHKORTOSTAN
-              ("Bashkortostan", "BST",
-               "https://bsttv.bonus-tv.ru/cdn/bst/playlist.m3u8"),
-              ("Bashkortostan", "Bashkortostan 24",
-               "https://s45177.cdn.ngenix.net/hls/CH_R02_BASHKORTOSTAN24/variant.m3u8"),
-              ("Bashkortostan", "Tamyr",
-               "https://s45177.cdn.ngenix.net/hls/CH_R03_TAMYRTV/variant.m3u8"),
-              ("Bashkortostan", "Kurai TV",
-               "https://bsttv.bonus-tv.ru/cdn/kurai/playlist.m3u8"),
-              ("Bashkortostan", "Salam",
-               "https://bsttv.bonus-tv.ru/cdn/salyam/playlist.m3u8"),
-              ("Bashkortostan", "Tugan Tel",
-               "https://s45177.cdn.ngenix.net/hls/CH_R01_TUGANTEL/variant.m3u8"),
-              ("Bashkortostan", "Aris 24",
-               "http://serv25.vintera.tv:8081/test/aris/playlist.m3u8"),
+              ("Bashkortostan", "Bashkortostan 24", "https://vgtrkregion-reg.cdnvideo.ru/vgtrk/ufa/bashkortostan24-hd/index.m3u8"),
+              ("Bashkortostan", "Tamyr", "https://s45177.cdn.ngenix.net/hls/CH_R03_TAMYRTV/variant.m3u8"),
+              ("Bashkortostan", "BST", "https://bsttv.bonus-tv.ru/cdn/bst/playlist.m3u8"),
+              ("Bashkortostan", "Kurai TV", "https://bsttv.bonus-tv.ru/cdn/kurai/playlist.m3u8"),
+              ("Bashkortostan", "Salam", "https://bsttv.bonus-tv.ru/cdn/salyam/playlist.m3u8"),
 
               # SAKHA / YAKUTIA
-              ("Sakha Yakutia", "NVK Sakha",
-               "https://live-saha.cdnvideo.ru/saha/saha/playlist.m3u8"),
-              ("Sakha Yakutia", "Yakutia 24",
-               "https://s34351.cdn.ngenix.net/hls/CH_R14_OTT_DV_YKT_YKT/variant.m3u8"),
-              ("Sakha Yakutia", "Mammoth TV",
-               "https://s34351.cdn.ngenix.net/hls/CH_R14_OTT_DV_YKT_MAMONT/variant.m3u8"),
-              ("Sakha Yakutia", "Almazny Kray",
-               "https://stream.almaz-media.tv:8080/hls/720.m3u8"),
+              ("Sakha Yakutia", "NVK Sakha", "https://s34351.cdn.ngenix.net/hls/CH_R03_OTT_DV_YKT_NVC_OTT/variant.m3u8"),
+              ("Sakha Yakutia", "Almazny Kray", "https://stream.almaz-media.tv:8080/hls/720.m3u8"),
+              ("Sakha Yakutia", "GTRK Sakha - Russia 1 regional", "http://vgtrkregion-reg.cdnvideo.ru/vgtrk/yakutsk/russia1-hd/index.m3u8"),
 
               # TUVA
-              ("Tuva", "Tuva 24",
-               "https://s93498.cdn.ngenix.net/hls/CH_R01_TUVA24/variant.m3u8"),
+              # Tuva 24 currently has no clearly better stable public HLS mirror.
+              # Keep it, but add the user-agent metadata below and a VGTRK regional fallback.
+              ("Tuva", "Tuva 24", "https://s93498.cdn.ngenix.net/hls/CH_R01_TUVA24/variant.m3u8"),
+              ("Tuva", "GTRK Tyva - Russia 1 regional", "http://vgtrkregion-reg.cdnvideo.ru/vgtrk/kisil/russia1-hd/index.m3u8"),
 
               # KHAKASSIA
-              ("Khakassia", "RTS Abakan",
-               "https://rt-sib-abakan-htlive.cdn.ngenix.net/hls/CH_R01_OTT_SIB_ABAKAN_RTS/variant.m3u8"),
-              ("Khakassia", "TV-7 Abakan",
-               "https://rt-sib-abakan-htlive.cdn.ngenix.net/hls/CH_R01_TV7/variant.m3u8"),
+              ("Khakassia", "RTS Abakan", "https://rt-sib-abakan-htlive.cdn.ngenix.net/hls/CH_R01_OTT_SIB_ABAKAN_RTS/variant.m3u8"),
+              ("Khakassia", "TV-7 Abakan", "https://rt-sib-abakan-htlive.cdn.ngenix.net/hls/CH_R01_TV7/variant.m3u8"),
 
               # KARACHAY-CHERKESSIA
-              ("Karachay Cherkessia", "Arkhyz 24 HD",
-               "https://rt-sth-cherks-htlive.cdn.ngenix.net/hls/CH_R03_OTT_STH_CHERKS_ARKHIZ241/variant.m3u8"),
-              ("Karachay Cherkessia", "Arkhyz 24 Lite",
-               "https://rt-sth-cherks-htlive.cdn.ngenix.net/hls/CH_R03_OTT_STH_CHERKS_ARKHIZ24LITE/variant.m3u8"),
+              # Two quite different delivery networks, improving odds on a TV app.
+              ("Karachay Cherkessia", "Arkhyz 24 - MediaCDN", "https://live.mediacdn.ru/sr1/arhis24/playlist.m3u8"),
+              ("Karachay Cherkessia", "Arkhyz 24 - Yandex", "https://strm.yandex.ru/kal/arhyz24/arhyz240.m3u8"),
+
+              # KABARDINO-BALKARIA
+              ("Kabardino Balkaria", "GTRK Kabardino-Balkaria - Russia 1 regional", "http://vgtrkregion-reg.cdnvideo.ru/vgtrk/nalchik/russia1-hd/index.m3u8"),
 
               # DAGESTAN
-              ("Dagestan", "RGVK Dagestan",
-               "https://dagestan.mediacdn.ru/cdn/dagestan/playlist.m3u8"),
+              ("Dagestan", "RGVK Dagestan - Nginx", "https://rt-sth-mahachk-htlive.cdn.ngenix.net/hls/CH_R01_OTT_STH_MAHACHK_DAGESTAN/variant.m3u8"),
+              ("Dagestan", "RGVK Dagestan - Yandex", "http://strm.yandex.ru/kal/dagestan_supres/dagestan_supres0_169_720p.json/index-v1-a1.m3u8"),
 
-              # ASTRAKHAN
-              ("Astrakhan", "Astrakhan 24",
-               "https://astrakhan24.bonus-tv.ru/cdn/astrakhan24/playlist.m3u8"),
+              # ASTRakhan / ALTAI / CHECHNYA
+              ("Astrakhan", "Astrakhan 24", "https://streaming.astrakhan.ru/astrakhan24/index.m3u8"),
+              ("Altai Krai", "Katun 24", "https://rt-sib-bul-htlive.cdn.ngenix.net/hls/CH_R01_OTT_SIB_BUL_KATUN24/variant.m3u8"),
+              ("Chechnya", "Grozny", "https://cdn-evacoder-tv.facecast.io/evacoder_hls_hi/UUMLQVAYVlZyH14GRENQVV0G/2/1.m3u8"),
 
-              # ALTAI KRAI
-              ("Altai Krai", "Katun 24",
-               "https://rt-sib-bul-htlive.cdn.ngenix.net/hls/CH_R01_OTT_SIB_BUL_KATUN24/variant.m3u8"),
+              # XINJIANG / UYGHUR & KAZAKH
+              ("Xinjiang Turkic", "Karamay Uyghur", "https://klmyzb.rcsxzx.com/hls/klmy2.m3u8"),
+              ("Xinjiang Turkic", "Ili Uyghur", "http://110.153.180.106:55555/out_2/index.m3u8"),
+              ("Xinjiang Turkic", "Ili Kazakh", "http://110.153.180.106:55555/out_3/index.m3u8"),
 
-              # CHECHNYA
-              ("Chechnya", "Grozny",
-               "https://cdn-evacoder-tv.facecast.io/evacoder_hls_hi/UUMLQVAYVlZyH14GRENQVV0G/2/1.m3u8"),
-
-              # XINJIANG - TURKIC LANGUAGE REGIONAL CHANNELS
-              ("Xinjiang Turkic", "Karamay Uyghur",
-               "https://klmyzb.rcsxzx.com/hls/klmy2.m3u8"),
-              ("Xinjiang Turkic", "Ili Uyghur",
-               "http://110.153.180.106:55555/out_2/index.m3u8"),
-              ("Xinjiang Turkic", "Ili Kazakh",
-               "http://110.153.180.106:55555/out_3/index.m3u8"),
-              ("Xinjiang Turkic", "Kuytun Kazakh",
-               "http://218.84.12.186:8002/hls/main/playlist.m3u8"),
+              # KHORASANI TURKISH REGION
+              # Atrak is North Khorasan's regional IRIB service.
+              ("Khorasani Turkish", "Atrak TV - current Telewebion", "https://ncdn.telewebion.ir/atrak/live/playlist.m3u8"),
+              ("Khorasani Turkish", "Atrak TV - alternate Telewebion", "https://cdnw.telewebion.com/atrak/live/playlist.m3u8"),
 
               # CRIMEAN TATAR
-              ("Crimean Tatar", "ATR",
-               "http://stream.atr.ua/atr/live/index.m3u8"),
-              ("Crimean Tatar", "Millet",
-               "http://live.trkmillet.ru/millet/index.m3u8"),
+              ("Crimean Tatar", "ATR", "http://stream.atr.ua/atr/live/index.m3u8"),
+              ("Crimean Tatar", "Millet", "http://live.trkmillet.ru/millet/index.m3u8"),
           ]
 
           output = ["#EXTM3U"]
@@ -287,37 +189,47 @@ jobs:
 
           def rewrite_group(extinf, group):
               group = group.replace('"', "")
-
               if 'group-title="' in extinf:
                   return re.sub(
                       r'group-title="[^"]*"',
                       f'group-title="{group}"',
                       extinf
                   )
-
               comma = extinf.find(",")
-
               if comma == -1:
                   return extinf
+              return extinf[:comma] + f' group-title="{group}"' + extinf[comma:]
 
-              return (
-                  extinf[:comma]
-                  + f' group-title="{group}"'
-                  + extinf[comma:]
-              )
+          def compatibility_metadata(url):
+              meta = []
+
+              # A lot of Rostelecom/Wink regional HLS links are distributed with
+              # an Android/ExoPlayer-style UA. Some TV apps otherwise silently
+              # drop them during import.
+              if "cdn.ngenix.net" in url:
+                  meta.append(
+                      "#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Linux; Android 4) ExoPlayer2/2.37"
+                  )
+
+              # Yandex mirrors are more reliable with a normal browser UA.
+              elif "strm.yandex.ru" in url:
+                  meta.append("#EXTVLCOPT:http-user-agent=Mozilla/5.0")
+
+              # Give other manually curated streams a conventional UA too.
+              else:
+                  meta.append("#EXTVLCOPT:http-user-agent=Mozilla/5.0")
+
+              return meta
 
           def add_stream(group, extinf, metadata, stream_url):
               stream_url = stream_url.strip()
-
               if not stream_url.startswith(("http://", "https://")):
                   return
-
               if stream_url in seen_urls:
                   return
 
               seen_urls.add(stream_url)
               counts[group] += 1
-
               output.append(rewrite_group(extinf, group))
 
               for line in metadata:
@@ -328,7 +240,6 @@ jobs:
 
           def import_playlist(group, url):
               print(f"Downloading {group}: {url}")
-
               try:
                   request = urllib.request.Request(
                       url,
@@ -337,13 +248,8 @@ jobs:
                           "Accept": "*/*",
                       },
                   )
-
                   with urllib.request.urlopen(request, timeout=30) as response:
-                      text = response.read().decode(
-                          "utf-8-sig",
-                          errors="replace"
-                      )
-
+                      text = response.read().decode("utf-8-sig", errors="replace")
               except Exception as error:
                   print(f"FAILED: {url}: {error}")
                   return
@@ -360,7 +266,6 @@ jobs:
 
                   extinf = line
                   metadata = []
-
                   j = i + 1
                   found_stream = None
 
@@ -380,48 +285,43 @@ jobs:
                       j += 1
 
                   if found_stream:
-                      add_stream(
-                          group,
-                          extinf,
-                          metadata,
-                          found_stream
-                      )
+                      # If the upstream list gave no UA metadata but this is one of
+                      # the finicky regional CDNs, add our compatibility metadata.
+                      if not any(x.startswith("#EXTVLCOPT:http-user-agent=") for x in metadata):
+                          metadata.extend(compatibility_metadata(found_stream))
+
+                      add_stream(group, extinf, metadata, found_stream)
                       i = j + 1
                   else:
                       i += 1
 
-          # Import all remote playlists.
+          # 1) Curated/fallback streams first.
+          for group, name, url in extras:
+              extinf = f'#EXTINF:-1 group-title="{group}",{name}'
+              add_stream(group, extinf, compatibility_metadata(url), url)
+
+          # 2) Then broad IPTV-org lists.
           for group, urls in sources:
               for url in urls:
                   import_playlist(group, url)
 
-          # Add manually curated extras/fallbacks.
-          for group, name, url in extras:
-              extinf = f'#EXTINF:-1 group-title="{group}",{name}'
-              add_stream(group, extinf, [], url)
-
-          # Write final playlist.
           with open("playlist.m3u", "w", encoding="utf-8") as f:
               f.write("\n".join(output) + "\n")
 
-          # Also create a human-readable count file in the repo.
           all_groups = [group for group, _ in sources]
-
-          if "Crimean Tatar" not in all_groups:
-              all_groups.append("Crimean Tatar")
+          for extra_group in ["Crimean Tatar"]:
+              if extra_group not in all_groups:
+                  all_groups.append(extra_group)
 
           with open("playlist-stats.txt", "w", encoding="utf-8") as f:
               f.write(f"TOTAL UNIQUE STREAMS: {len(seen_urls)}\n\n")
-
               for group in all_groups:
                   f.write(f"{group}: {counts[group]}\n")
 
           print("\nCHANNEL COUNTS")
           print("--------------")
-
           for group in all_groups:
               print(f"{group}: {counts[group]}")
-
           print(f"\nTOTAL: {len(seen_urls)} unique streams")
           PY
 
