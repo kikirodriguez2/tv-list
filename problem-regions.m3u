@@ -1,0 +1,45 @@
+#EXTM3U
+
+#EXTINF:-1 group-title="Turkmenistan",Turkmenistan
+https://alpha.tv.online.tm/hls/ch007.m3u8
+#EXTINF:-1 group-title="Turkmenistan",Turkmenistan legacy
+https://alpha.tv.online.tm/legacyhls/ch007.m3u8
+
+#EXTINF:-1 group-title="Turkmenistan",Altyn Asyr
+https://alpha.tv.online.tm/hls/ch001.m3u8
+#EXTINF:-1 group-title="Turkmenistan",Miras
+https://alpha.tv.online.tm/hls/ch003.m3u8
+
+#EXTINF:-1 group-title="Tatarstan",TNV Planet MediaCDN
+https://planeta.mediacdn.ru/cdn/tnvplanet/playlist.m3u8
+#EXTINF:-1 group-title="Tatarstan",TNV Planet Cinerama
+https://stream8.cinerama.uz/1062/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="Tatarstan",Shayan TV
+https://s45177.cdn.ngenix.net/hls/CH_R03_SHAYNTV/variant.m3u8
+
+#EXTINF:-1 group-title="Tuva",Tuva 24
+https://s93498.cdn.ngenix.net/hls/CH_R01_TUVA24/variant.m3u8
+#EXTINF:-1 group-title="Tuva",Tuva 24 alternate
+http://dmi3y-tv6.ru/hls/zabava/region/TUVA/CH_TUVA24.m3u8
+
+#EXTINF:-1 group-title="Khakassia",RTS Abakan
+https://rt-sib-abakan-htlive.cdn.ngenix.net/hls/CH_R01_OTT_SIB_ABAKAN_RTS/variant.m3u8
+#EXTINF:-1 group-title="Khakassia",TV-7 Abakan
+https://rt-sib-abakan-htlive.cdn.ngenix.net/hls/CH_R01_TV7/variant.m3u8
+
+#EXTINF:-1 group-title="Karachay Cherkessia",Arkhyz 24 MediaCDN
+https://live.mediacdn.ru/sr1/arhis24/playlist.m3u8
+#EXTINF:-1 group-title="Karachay Cherkessia",Arkhyz 24 Yandex
+https://strm.yandex.ru/kal/arhyz24/arhyz240.m3u8
+
+#EXTINF:-1 group-title="Dagestan",RGVK Dagestan MediaCDN
+https://dagestan.mediacdn.ru/cdn/dagestan/playlist.m3u8
+#EXTINF:-1 group-title="Dagestan",RGVK Dagestan HD
+https://dagestan.mediacdn.ru/cdn/dagestan/playlist_hdhigh.m3u8
+#EXTINF:-1 group-title="Dagestan",RGVK Dagestan Nginx
+https://rt-sth-mahachk-htlive.cdn.ngenix.net/hls/CH_R01_OTT_STH_MAHACHK_DAGESTAN/variant.m3u8
+
+#EXTINF:-1 group-title="Khorasani Turkish",Atrak TV
+https://cdnw.telewebion.com/atrak/live/playlist.m3u8
+#EXTINF:-1 group-title="Khorasani Turkish",Atrak TV alternate
+https://ncdn.telewebion.ir/atrak/live/playlist.m3u8
