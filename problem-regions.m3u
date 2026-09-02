@@ -17,11 +17,6 @@ https://stream8.cinerama.uz/1062/tracks-v1a1/mono.m3u8
 #EXTINF:-1 group-title="Tatarstan",Shayan TV
 https://s45177.cdn.ngenix.net/hls/CH_R03_SHAYNTV/variant.m3u8
 
-#EXTINF:-1 group-title="Tuva",Tuva 24
-https://s93498.cdn.ngenix.net/hls/CH_R01_TUVA24/variant.m3u8
-#EXTINF:-1 group-title="Tuva",Tuva 24 alternate
-http://dmi3y-tv6.ru/hls/zabava/region/TUVA/CH_TUVA24.m3u8
-
 #EXTINF:-1 group-title="Khakassia",RTS Abakan
 https://rt-sib-abakan-htlive.cdn.ngenix.net/hls/CH_R01_OTT_SIB_ABAKAN_RTS/variant.m3u8
 #EXTINF:-1 group-title="Khakassia",TV-7 Abakan
