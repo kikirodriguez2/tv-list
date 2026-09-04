@@ -461,36 +461,48 @@ https://str.yodacdn.net/medeniyyettele/index.m3u8
 https://str2.yodacdn.net/ntv/video.m3u8
 #EXTINF:-1 tvg-id="VilayetTV.az@SD" tvg-logo="https://vilayet.tv/wp-content/uploads/elementor/thumbs/logo-q3w2md1u47q39x7d0004wqzz74xdv1glw356ex6ph0.png" group-title="Azerbaijan",Vilayet TV
 https://nl.livekadeh.com/hls2/vilayet.m3u8
-#EXTINF:-1 tvg-id="XezerTV.az@SD" tvg-logo="https://upload.wikimedia.org/wikipedia/en/9/97/X%C9%99z%C9%99r_TV_Logo.png" group-title="Azerbaijan",Xezer TV (720p)
+#EXTINF:-1 tvg-id="XezerTV.az@SD" tvg-logo="" group-title="Azerbaijan",Xezer TV (720p)
 https://www.xezerxeber.az/stream/index.m3u8
 #EXTINF:-1 tvg-id="AznewsTV.se@SD" tvg-logo="https://i.imgur.com/Kw17XfP.png" group-title="Azerbaijan",Azerbaijan News TV (720p) [Not 24/7]
 https://edge1.socialsmart.tv/aznews/smil/playlist.m3u8
 #EXTINF:-1 tvg-id="AzStarTV.ca@SD" tvg-logo="https://i.imgur.com/di3XX5L.png" group-title="Azerbaijan",Azstar TV HD (1080p)
 https://live.livestreamtv.ca/azstar/amlst:azstar/playlist.m3u8
+#EXTINF:-1 tvg-id="24KZ.kz@SD" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/24KZ_logo.svg/1280px-24KZ_logo.svg.png" group-title="Kazakhstan",24KZ (576p)
+https://fs.uplink.kz/24KZ/mono.m3u8?token=onlinetv
 #EXTINF:-1 tvg-id="31Kanal.kz@SD" tvg-logo="https://www.ikegami.co.jp/files/co/news/20250903_kazakhstanChannel31/Channel31_Logo.jpg" group-title="Kazakhstan",31 Kanal (576p)
 http://stream.mcquack.net/388/index.m3u8
 #EXTINF:-1 tvg-id="AbaiTV.kz@SD" tvg-logo="https://i.imgur.com/Nw2R7Dq.png" group-title="Kazakhstan",Abai TV (720p)
 https://abaitv-stream.qazcdn.com/abaitv/abaitv/playlist.m3u8
 #EXTINF:-1 tvg-id="AlauTV.kz@SD" tvg-logo="https://i.imgur.com/gK6ZRzp.png" group-title="Kazakhstan",Alau TV (576p)
 https://otv.wotom.net/alau/stream.m3u8
+#EXTINF:-1 tvg-id="AlmatyTV.kz@SD" tvg-logo="https://i.imgur.com/Mjqwt8C.png" group-title="Kazakhstan",Almaty TV (576p)
+https://fs.uplink.kz/almaty/mono.m3u8?token=onlinetv
 #EXTINF:-1 tvg-id="Aqjaiyq.kz@SD" tvg-logo="https://i.imgur.com/ZqIzzmf.png" group-title="Kazakhstan",Aqjaiyq (576p)
 https://stream.kaztrk.kz/regional/oraltv/index.m3u8
 #EXTINF:-1 tvg-id="Aqtobe.kz@SD" tvg-logo="https://i.imgur.com/csKl1z6.png" group-title="Kazakhstan",Aqtóbe (576p)
 https://stream.kaztrk.kz/regional/aktobetv/index.m3u8
 #EXTINF:-1 tvg-id="AstanaTV.kz@SD" tvg-logo="https://upload.wikimedia.org/wikipedia/en/7/7b/Astana_TV_Logo.png" group-title="Kazakhstan",Astana TV (576p)
 http://stream.mcquack.net/28/index.m3u8
+#EXTINF:-1 tvg-id="AtamekenBusiness.kz@SD" tvg-logo="https://i.imgur.com/CfRvm8i.png" group-title="Kazakhstan",Atameken Business (576p)
+https://fs.uplink.kz/atameken/mono.m3u8?token=onlinetv
 #EXTINF:-1 tvg-id="Atyray.kz@SD" tvg-logo="https://i.imgur.com/kva4O3T.png" group-title="Kazakhstan",Atyraý (720p)
 https://stream.kaztrk.kz/regional/atyrautv/index.m3u8
+#EXTINF:-1 tvg-id="Balapan.kz@SD" tvg-logo="https://vote.rtrk.kz/img/balapan-logo.png" group-title="Kazakhstan",Balapan (576p)
+https://fs.uplink.kz/balapan/mono.m3u8?token=onlinetv
 #EXTINF:-1 tvg-id="Balapan.kz@HD" tvg-logo="https://vote.rtrk.kz/img/balapan-logo.png" group-title="Kazakhstan",Balapan HD (1080p)
 https://balapantv-stream.qazcdn.com/balapantv/balapantv/playlist.m3u8
 #EXTINF:-1 tvg-id="BalapanInternational.kz@SD" tvg-logo="https://otv.server-img.lfstrm.tv/images/channel_logos/logo_638108d82e47243302bc81f1.png" group-title="Kazakhstan",Balapan International (1080p)
 https://live-3.otcnet.ru/Balapan/index.m3u8
+#EXTINF:-1 tvg-id="Channel7.kz@SD" tvg-logo="https://i.imgur.com/LebKU09.png" group-title="Kazakhstan",Channel 7 (576p)
+https://fs.uplink.kz/7_kanal/mono.m3u8?token=onlinetv
 #EXTINF:-1 tvg-id="Ertis.kz@SD" tvg-logo="https://i.imgur.com/tghMiwW.png" group-title="Kazakhstan",Ertis (1080p) [Not 24/7]
 https://stream.kaztrk.kz/regional/pavlodartv/index.m3u8
 #EXTINF:-1 tvg-id="Jambyl.kz@SD" tvg-logo="https://i.imgur.com/X7N3JK4.png" group-title="Kazakhstan",Jambyl (360p) [Not 24/7]
 https://stream.kaztrk.kz/regional/taraztv/index.m3u8
 #EXTINF:-1 tvg-id="JibekJoly.kz@HD" tvg-logo="https://i.imgur.com/SqyXtgK.png" group-title="Kazakhstan",Jibek Joly HD (1080p)
 https://stream.qazcdn.net/ex6r514/jjtv/playlist.m3u8
+#EXTINF:-1 tvg-id="Khabar.kz@SD" tvg-logo="https://i.imgur.com/xG3HxId.png" group-title="Kazakhstan",Khabar (576p)
+https://fs.uplink.kz/habar/mono.m3u8?token=onlinetv
 #EXTINF:-1 tvg-id="Kokshe.kz@SD" tvg-logo="https://i.imgur.com/pOR3FSR.png" group-title="Kazakhstan",Kókshe (720p) [Not 24/7]
 https://stream.kaztrk.kz/regional/kokshetautv/index.m3u8
 #EXTINF:-1 tvg-id="KTK.kz@SD" tvg-logo="https://i.imgur.com/BurrNTo.png" group-title="Kazakhstan",KTK (576p)
@@ -503,6 +515,8 @@ https://stream.kaztrk.kz/regional/mangystautv/index.m3u8
 https://tvcdn01.esilnet.kz/tv/mtrk/index.m3u8
 #EXTINF:-1 tvg-id="MuzzOne.kz@SD" tvg-logo="https://i.imgur.com/nHVABXh.png" http-referrer="https://muzzone.tv/" group-title="Kazakhstan",MuzzOne
 https://streams.adapto.kz/hls/live/muzzone/main_stream.m3u8
+#EXTINF:-1 tvg-id="Novoetelevidenie.kz@SD" tvg-logo="https://i.imgur.com/mmKWrWs.png" group-title="Kazakhstan",Novoe televidenie (576p)
+https://fs.uplink.kz/novoe_tv/mono.m3u8?token=onlinetv
 #EXTINF:-1 tvg-id="NTK.kz@SD" tvg-logo="https://i.imgur.com/hHSCH4L.png" group-title="Kazakhstan",NTK (576p)
 http://stream.mcquack.net/389/index.m3u8
 #EXTINF:-1 tvg-id="Ontustik.kz@SD" tvg-logo="https://i.imgur.com/xqr1hjN.png" group-title="Kazakhstan",Ontústik (360p)
@@ -535,10 +549,10 @@ https://hlspackager.akamaized.net/live/DB/SILKWAY/SILKWAY/SILKWAY.m3u8
 https://stream.qazcdn.net/ex6r514/silkwaycinema/index.m3u8
 #EXTINF:-1 tvg-id="TDK42.kz@SD" tvg-logo="https://i.imgur.com/iVhdcS7.png" group-title="Kazakhstan",TDK 42
 https://live-tdk42kz.cdnvideo.ru/tdk42kz/tdk42kz_720.smil/playlist.m3u8
+#EXTINF:-1 tvg-id="TuranTV.kz@SD" tvg-logo="https://i.imgur.com/VagTPMo.png" group-title="Kazakhstan",Turan TV (576p)
+https://fs.uplink.kz/turan_tv/mono.m3u8?token=onlinetv
 #EXTINF:-1 tvg-id="Ulytau.kz@SD" tvg-logo="https://i.imgur.com/jTL6TvC.png" group-title="Kazakhstan",Ulytau
 https://ulytau.tv/hls/master.m3u8
-#EXTINF:-1 tvg-id="Novoetelevidenie.kz@SD" tvg-logo="https://i.imgur.com/mmKWrWs.png" group-title="Kazakhstan",Новое телевидение (576p) [Not 24/7]
-http://serv25.vintera.tv:8081/novoetv/nov_tv/playlist.m3u8
 #EXTINF:-1 tvg-id="XinjiangTV3.cn@SD" tvg-logo="https://i.imgur.com/l8S5qQB.png" group-title="Kazakhstan",Xinjiang TV 3
 http://110.153.180.106:55555/out_2/index.m3u8
 #EXTINF:-1 tvg-id="XinjiangTV8.cn@SD" tvg-logo="https://i.imgur.com/JJw1Ndc.png" group-title="Kazakhstan",Xinjiang TV 8
