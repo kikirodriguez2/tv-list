@@ -1,6 +1,6 @@
 TOTAL UNIQUE STREAMS: 355
 
-Turkey: 188
+Turkey: 189
 Azerbaijan: 20
 Kazakhstan: 51
 Kyrgyzstan: 11
@@ -18,5 +18,5 @@ Dagestan: 2
 Astrakhan: 4
 Altai Krai: 2
 Chechnya: 3
-Xinjiang Turkic: 3
+Xinjiang Turkic: 2
 Khorasani Turkish: 1
