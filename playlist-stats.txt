@@ -1,7 +1,7 @@
-TOTAL UNIQUE STREAMS: 362
+TOTAL UNIQUE STREAMS: 357
 
 Turkey: 196
-Azerbaijan: 20
+Azerbaijan: 15
 Kazakhstan: 51
 Kyrgyzstan: 11
 Uzbekistan: 34
